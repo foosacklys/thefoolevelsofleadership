@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Level 2 Competency Model</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1f285144-8f12-8080-8e4c-dc31ed526f70" class="page sans"><header><img class="page-cover-image" src="WEBSITE_HEADER_IMAGE.png" style="object-position:center 50%"/><h1 class="page-title">Level 2 Competency Model</h1><p class="page-description"></p></header><div class="page-body"><p id="24485144-8f12-80e7-a4a2-d64592adef5d" class=""><mark class="highlight-gray"><mark class="highlight-gray_background"><strong>Return To Home Page: </strong></mark></mark><mark class="highlight-gray"><mark class="highlight-gray_background"><strong><a href="The%20foo%20Levels%20of%20Leadership%20243851448f12801da5c1c69fa987daf8.html">The foo Levels of Leadership</a></strong></mark></mark><mark class="highlight-gray"><mark class="highlight-gray_background"><strong> </strong></mark></mark></p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">Making Good Life &amp; Financial Decisions</mark></summary><div class="indented"><ul id="1f285144-8f12-80f4-9f50-ee35519e0b37" class="block-color-gray toggle"><li><details open=""><summary><strong>Makes Responsible Life Decisions</strong></summary><ul id="1f285144-8f12-80a2-9607-fc2b55294ee3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Stays out of unnecessary drama, habits or distractions</mark><blockquote id="24485144-8f12-8008-bc93-ffe062a02fd4" class=""><em><mark class="highlight-blue"><strong>“I’ve had to say no to some things lately — I’m focused on growing and showing up right.”</strong></mark></em></blockquote></li></ul><ul id="1f285144-8f12-8020-b554-dc69194d95ec" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Managers their schedule to get rest, work, and life in balance.</mark><blockquote id="24485144-8f12-80a3-95a1-caed8b2c96eb" class=""><em><mark class="highlight-blue"><strong>“I changed my weekend habits so I’m sharper when I lead Saturday opens.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8058-b5c8-da348262d33f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Handles transportation, housing and family responsibility with consistency.</mark></li></ul></details></li></ul><hr id="24485144-8f12-805b-94ca-dc5fadd2824d"/><ul id="1f285144-8f12-800a-ae8e-d83ac05aa1c9" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Manages Their Finances With Maturity</strong></mark></summary><ul id="1f285144-8f12-8093-b868-d531235ec0e2" class="bulleted-list"><li style="list-style-type:disc">Lives within their means, budgets and saves regularly.<blockquote id="24485144-8f12-8062-8842-c4f3f12d043f" class=""><em><mark class="highlight-blue"><strong>&quot;I set up automatic savings and stopped eating out so much — I’m trying to get ahead&quot;</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8098-ae7d-cbea8ebf158d" class="bulleted-list"><li style="list-style-type:disc">Doesn’t miss shifts or underperform due to money stress.</li></ul><ul id="24485144-8f12-80a7-8591-e846b45f2bd8" class="bulleted-list"><li style="list-style-type:disc">Seeks and applies sound financial advice.<blockquote id="1f285144-8f12-8042-9841-fc67ecb71759" class=""><em><mark class="highlight-blue"><strong>&quot;“I talked to someone about budgeting — it’s already helped me feel more in control.&quot;</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-80de-b2d9-db88c48a1e90"/><ul id="1f285144-8f12-8033-93ac-c85918894ffc" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Builds a Stable Foundation for Leadership</strong></mark></summary><ul id="24485144-8f12-806a-990f-da2c5486305a" class="bulleted-list"><li style="list-style-type:disc">Keeps personal stress from spilling onto the team.</li></ul><ul id="24485144-8f12-8029-9fb4-d4812dee6978" class="bulleted-list"><li style="list-style-type:disc">Uses tools and routines to stay grounded.<blockquote id="24485144-8f12-80d6-a363-c854c4af4d31" class=""><em><mark class="highlight-blue"><strong>“I finally built a real morning routine. It’s made a huge difference in how I start shift.”</strong></mark></em></blockquote><blockquote id="24485144-8f12-8072-a358-ca85c5c8bd7c" class=""><em><mark class="highlight-blue"><strong>“I’ve been prioritizing sleep and workouts — it helps me lead with clarity.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-8082-b7bd-c3f685603ca8"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">Self-Awareness &amp; Integrity</mark></summary><div class="indented"><ul id="1f285144-8f12-80d0-86f7-f7c6d5b7dda9" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Owns Their Growth and Mindset</strong></mark></summary><ul id="24485144-8f12-80b2-9d77-f548ac396f01" class="bulleted-list"><li style="list-style-type:disc">Seeks out feedback without getting defensive.<blockquote id="24485144-8f12-80d5-9741-e087d2016403" class=""><em><mark class="highlight-blue"><strong>“I’ve been thinking about how I communicated yesterday. I can do better.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-805c-b19c-ebc9612f092b" class="bulleted-list"><li style="list-style-type:disc">Reads, reflects, and brings those learnings to shift.</li></ul><ul id="24485144-8f12-8007-8acd-e71402818832" class="bulleted-list"><li style="list-style-type:disc">Works to grow where they’re weak — not just where they’re comfortable.<blockquote id="24485144-8f12-80f7-8165-ffeb9af5f7db" class=""><em><mark class="highlight-blue"><strong>“I started keeping a list of what I learn after each shift — it helps me stay intentional.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-808c-905c-ec95a213ee06"/><ul id="24485144-8f12-80bd-b5ac-faaafd68e49c" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Models Honesty and Integrity</strong></mark></summary><ul id="24485144-8f12-80cf-b236-d100e844a62d" class="bulleted-list"><li style="list-style-type:disc">Speaks truthfully, even when it’s uncomfortable.<blockquote id="24485144-8f12-802f-948e-cbd9b83793c1" class=""><em><mark class="highlight-blue"><strong>“That was on me. I told the team the wrong thing — I’ve already corrected it.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80c3-9f4a-ca92b43b79e8" class="bulleted-list"><li style="list-style-type:disc">Acknowledges mistakes without deflection.<blockquote id="24485144-8f12-8063-981a-deedb19a20f3" class=""><em><mark class="highlight-blue"><strong>“I’m not going to blame them — I could’ve communicated better from the start.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8088-bea9-fadd663e148f" class="bulleted-list"><li style="list-style-type:disc">Speaks well of the company and team, even off the clock.</li></ul></details></li></ul><hr id="24485144-8f12-808b-aecd-f0bf4273c95a"/><ul id="24485144-8f12-80a2-a2c6-ffb46811ca07" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Leads With Self-Control</strong></mark></summary><ul id="24485144-8f12-80aa-9850-ea79393b7521" class="bulleted-list"><li style="list-style-type:disc">Regulates tone and body language under pressure.<blockquote id="24485144-8f12-807e-bdbf-ee581949e284" class=""><em><mark class="highlight-blue"><strong>“I’m frustrated, but I’m not going to pass that on to the crew.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8027-9213-c74735f6670f" class="bulleted-list"><li style="list-style-type:disc">Resets their own energy before leading others.<blockquote id="24485144-8f12-80ef-aa58-df9aa0f21416" class=""><em><mark class="highlight-blue"><strong>“Let’s reset. We’re not where we want to be, but we can still finish strong.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-805e-a2c2-c3b97882f6ab" class="bulleted-list"><li style="list-style-type:disc">Doesn’t let personal emotion leak into the shift.</li></ul></details></li></ul><hr id="24485144-8f12-80af-8105-e9b9a8ba435b"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">Maintains Personal Organization &amp; Preparedness</mark></summary><div class="indented"><ul id="24485144-8f12-8074-952e-e28db0b7ed6c" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Comes Prepared and Ready</strong></mark></summary><ul id="24485144-8f12-80d9-9965-c5e88edf24bb" class="bulleted-list"><li style="list-style-type:disc">Shows up early, sharp, and focused.<blockquote id="1f285144-8f12-807b-ac05-c3a8d1273017" class=""><em><mark class="highlight-blue"><strong>&quot;I get here early to think through the team and flow of the shift.&quot;</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8093-b45d-c0b05f6af211" class="bulleted-list"><li style="list-style-type:disc">Brings everything they need (proper uniform &amp; clean attire, tools, notes, mindset).</li></ul><ul id="24485144-8f12-8005-b435-deb3d9c8180d" class="bulleted-list"><li style="list-style-type:disc">Has already mentally walked the shift before clocking in.<blockquote id="1f285144-8f12-8012-aa90-e7982f3150c2" class=""><em><mark class="highlight-blue"><strong>“I use my drive in to plan how I want the shift to feel and who I’m working with.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-8020-97e6-c552ebaa281e"/><ul id="24485144-8f12-8031-aef8-f0b6830e057b" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Uses Systems to Stay on Top</strong></mark></summary><ul id="24485144-8f12-800f-aaf5-c2fd2dfde5d7" class="bulleted-list"><li style="list-style-type:disc">Has a calendar, planner, or written system — not just memory.<blockquote id="24485144-8f12-8010-9998-e362f6780755" class=""><em><mark class="highlight-blue"><strong>“Every Sunday night I plan out the week — it makes the shift easier.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8020-993d-cbd4aba471ce" class="bulleted-list"><li style="list-style-type:disc">Keeps their areas of responsibilities well managed, executes checklists and keeps personal notes organized.</li></ul><ul id="24485144-8f12-80fd-94de-e89893c05aa8" class="bulleted-list"><li style="list-style-type:disc">Manages their own schedule like they expect the team to.</li></ul></details></li></ul><hr id="24485144-8f12-805d-99d6-ffad51b5b2a3"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">Follows-Through to Followthrough</mark> </summary><div class="indented"><ul id="1f285144-8f12-805c-850d-cc7c05166ead" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Finishes What They Start</strong></mark></summary><ul id="24485144-8f12-80f2-9ac9-ebcabcc1d7a9" class="bulleted-list"><li style="list-style-type:disc">Doesn’t walk past things or leave tasks halfway done.</li></ul><ul id="24485144-8f12-80f4-bb49-dffb3ae13b8c" class="bulleted-list"><li style="list-style-type:disc">Gets the shift to the finish line — even if it takes staying late.<blockquote id="1f285144-8f12-8048-854d-c3df3dcb5049" class=""><em><mark class="highlight-blue"><strong>&quot;We were behind, so I stayed until we caught up and set up for tomorrow.&quot;</strong></mark></em></blockquote><blockquote id="24485144-8f12-8018-8010-d4dcd1db08c0" class=""><em><mark class="highlight-blue"><strong>“I checked everything before close using the checklist — even double checked the restrooms and lobby.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-805e-ba28-cd8b533377fd" class="bulleted-list"><li style="list-style-type:disc">Communicates if they need help before dropping the ball.</li></ul></details></li></ul><hr id="24485144-8f12-80de-a654-c53d0d90d818"/><ul id="24485144-8f12-8032-beff-c835a01949c5" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Takes Ownership of the Whole Shift</strong></mark></summary><ul id="24485144-8f12-808c-9b81-c46ebcb673a8" class="bulleted-list"><li style="list-style-type:disc">Owns opening, lunch rush, prep, close, quality, and customer outcomes.</li></ul><ul id="24485144-8f12-8018-a5e2-e765e9f64fcd" class="bulleted-list"><li style="list-style-type:disc">Doesn’t just report problems — works to fix them.<blockquote id="24485144-8f12-80bb-91d5-ef0940e63a39" class=""><em><mark class="highlight-blue"><strong>&quot;I handled it with the customer, coached the team, and left a note for the manager.&quot;</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80c7-80ce-d5d766559733" class="bulleted-list"><li style="list-style-type:disc">Leads with “I got it” energy, not excuses.<blockquote id="24485144-8f12-803d-b396-fdacecff001c" class=""><em><mark class="highlight-blue"><strong>“I couldn’t find the build-to list so I did a quick rebuild from scratch and trained the opener.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-8092-9e2a-d535fdd00690"/><ul id="24485144-8f12-8026-b77b-e6cbe0388f7a" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Builds Trust Through Consistency</strong></mark></summary><ul id="24485144-8f12-8077-9581-cfda39ce2c9e" class="bulleted-list"><li style="list-style-type:disc">You can count on them. They show up, follow up, and close loops.</li></ul><ul id="24485144-8f12-802e-b448-cd2f8834f7e5" class="bulleted-list"><li style="list-style-type:disc">They don’t disappear when things get tough — they lean in.</li></ul><ul id="24485144-8f12-80c3-b20a-f898c522b5c1" class="bulleted-list"><li style="list-style-type:disc">Other leaders trust them with hard things.<blockquote id="24485144-8f12-80a1-acf1-f8b5c14f8d04" class=""><em><mark class="highlight-blue"><strong>&quot;I’ll take care of it and follow up with you later today.&quot;</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-8032-9bc5-f4c35ad17d6f"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">People Skills &amp; Culture Building</mark> </summary><div class="indented"><ul id="24485144-8f12-80c2-942f-cb6ab4254f88" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Coaches with Care and Clarity</strong></mark></summary><ul id="24485144-8f12-80b3-8837-f6fbdc47706a" class="bulleted-list"><li style="list-style-type:disc">Gives feedback directly — not with sarcasm or side talk.<blockquote id="24485144-8f12-8073-a45b-d39fa8cc2fda" class=""><em><mark class="highlight-blue"><strong>&quot;I’m bringing it up because I believe in and know your potential.&quot;</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8017-9e68-f2b54868aa40" class="bulleted-list"><li style="list-style-type:disc">Balances praise and correction as part of their daily rhythm.<blockquote id="24485144-8f12-80aa-979e-c3ba7c6cdb54" class=""><em><mark class="highlight-blue"><strong>“I coached her in the moment — not in front of everyone”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8005-aaf2-c57a00441967" class="bulleted-list"><li style="list-style-type:disc">Teaches why the standard matters.</li></ul></details></li></ul><hr id="24485144-8f12-8063-8a54-f4d60179183f"/><ul id="24485144-8f12-80cd-a5df-d4150f21c40d" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Builds Trust and Integrity with the Team</strong></mark></summary><ul id="24485144-8f12-8001-abeb-f830abb9eae1" class="bulleted-list"><li style="list-style-type:disc">Shows up the same way, no matter who’s watching.</li></ul><ul id="24485144-8f12-802e-b438-ea471c75aba2" class="bulleted-list"><li style="list-style-type:disc">Apologizes when needed.<blockquote id="24485144-8f12-80e9-b361-fe32ed75d0c1" class=""><em><mark class="highlight-blue"><strong>&quot;That was on me yesterday. I should’ve been more clear up front.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-8057-8f4f-effc5f2114b0"/><ul id="24485144-8f12-80c8-86d0-c1769b9f8c0f" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Protects the Culture</strong></mark></summary><ul id="24485144-8f12-80cc-9310-d916fc15d70a" class="bulleted-list"><li style="list-style-type:disc">Redirects negativity or unhelpful language.<blockquote id="24485144-8f12-80ed-a967-c850894474f1" class=""><em><mark class="highlight-blue"><strong>&quot;We’re not doing that today — let’s keep it positive and locked in.&quot;</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-800f-8be6-ce1018f84fe8" class="bulleted-list"><li style="list-style-type:disc">Encourages the quieter voices on the team.<blockquote id="24485144-8f12-802a-b469-d6f6f96e8c2f" class=""><em><mark class="highlight-blue"><strong>“I could tell he was bothered by that comment that Tim made, so I stepped in to help redirect and improve the conversation”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8004-8450-dc0af773c885" class="bulleted-list"><li style="list-style-type:disc">Models fun <em>and</em> focus.</li></ul></details></li></ul><hr id="24485144-8f12-8016-b8d4-c71dc8773202"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">Training and The 5-Step Process</mark> </summary><div class="indented"><ul id="24485144-8f12-8018-a24c-f6318e64b980" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Uses a Clear Training Method</strong></mark></summary><ul id="24485144-8f12-8024-9c30-d643aa9d0f0a" class="bulleted-list"><li style="list-style-type:disc">Applies the full 5-Step Training Process.<blockquote id="24485144-8f12-804d-baeb-e3601d058a7a" class=""><em><mark class="highlight-blue"><strong>“I  modeled, mentored and monitored—when I saw they were having trouble I stepped back to mentor again.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-804a-985e-cf3ef881847e" class="bulleted-list"><li style="list-style-type:disc">Motivates trainees<blockquote id="24485144-8f12-80d7-9e80-cfd1f77cf771" class=""><em><mark class="highlight-blue"><strong>“You’re doing it! That’s exactly the right way. Keep it up!”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-801f-b42e-e657bcd3c94e" class="bulleted-list"><li style="list-style-type:disc">Multiplies by training employees to a level of understanding that they can eventually train.</li></ul><ul id="24485144-8f12-809a-bf8b-cfb5743a4b6d" class="bulleted-list"><li style="list-style-type:disc">Tracks progress, gives updates, and doesn’t wing it.</li></ul><ul id="24485144-8f12-80ab-8f76-cce0c6f95c5a" class="bulleted-list"><li style="list-style-type:disc">Understands what “graduation” looks like before moving on.<blockquote id="24485144-8f12-80ea-b84e-e5167cde93d0" class=""><em><mark class="highlight-blue"><strong>“She’s solid on Server 2 technicals, but I’m working on her confidence on answering customer questions and would like to see a little more ‘Leap To Serve’.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-801b-8434-fd1c8818e29d"/><ul id="24485144-8f12-8009-ab28-f5d5992068fa" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Teaches Mindset, Not Just Tasks</strong></mark></summary><ul id="24485144-8f12-8091-bb9d-eb1248f4ef85" class="bulleted-list"><li style="list-style-type:disc">Explains the why — not just the how.<blockquote id="24485144-8f12-8078-b223-d98c26e7aead" class=""><em><mark class="highlight-blue"><strong>“The reason we are focusing on ‘Leaping To Serve’ is because we want to WOW every customer that walks through those doors!”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-801c-8573-ff9d17a46110" class="bulleted-list"><li style="list-style-type:disc">Uses in-the-moment coaching.<blockquote id="24485144-8f12-8052-82f7-fe000ac3ec53" class=""><em><mark class="highlight-blue"><strong>“I asked him to slow down and focus on quality — then we coached it out during dinner rush.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-802c-bb49-e789a3f280ed"/><ul id="24485144-8f12-80db-bb8d-cbd9b6d87d34" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Trains Even When Not The Trainer</strong></mark></summary><ul id="24485144-8f12-805e-a906-ce1cf40680c4" class="bulleted-list"><li style="list-style-type:disc">Offers helpful reminders in real time and after shifts.<blockquote id="24485144-8f12-804c-8c2e-f58e2c9479dd" class=""><em><mark class="highlight-blue"><strong>“I gave him some feedback about the Assembly shift before he left for the day—he was doing well, but the presentation and portioning was a little off during our peak business.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-808e-a0be-c0aa6f76761c" class="bulleted-list"><li style="list-style-type:disc">Coaches in small moments: handoffs, walk-bys, etc.<blockquote id="24485144-8f12-80ac-a812-c6259278af90" class=""><em><mark class="highlight-blue"><strong>“She was flustered on Server 1, so I stood nearby and talked her through the next 3 guests.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8037-b92a-fcc8bdc00277" class="bulleted-list"><li style="list-style-type:disc">Looks out for new team members and helps them feel confident.</li></ul><ul id="24485144-8f12-8044-b8f8-ce61f0d7eb37" class="bulleted-list"><li style="list-style-type:disc">Never says “not my job” when someone needs help learning.<blockquote id="24485144-8f12-8015-a5a2-df0e2d77ab29" class=""><em><mark class="highlight-blue"><strong>“Even though I wasn’t the trainer, I followed up and asked how her close went — then gave one quick tip.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-80c5-b727-d40c1339e916"/><ul id="24485144-8f12-8098-8957-e8267c92aca2" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Invests in Future Leaders</strong></mark></summary><ul id="24485144-8f12-803f-8bd6-c1c6c960a6b6" class="bulleted-list"><li style="list-style-type:disc">Sees who’s ready for more — and who needs more time.<blockquote id="24485144-8f12-802f-8d40-c80038744b7d" class=""><em><mark class="highlight-blue"><strong>&quot;I think she’s ready for the next step, but I’d like to be on the next shift just to make sure.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80a8-8e7a-f4f356d0b42a" class="bulleted-list"><li style="list-style-type:disc">Encourages people into growth zones.<blockquote id="24485144-8f12-80d7-aeb6-e883be11a4b2" class=""><em><mark class="highlight-blue"><strong>“I gave him a stretch goal on Toast &amp; Fries and helped him through the shift to achieve it.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-806a-b865-f83576d22bd3" class="bulleted-list"><li style="list-style-type:disc">Raises their expectations as people improve.</li></ul></details></li></ul><hr id="24485144-8f12-805c-9e60-d2740a54c2a8"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">System Ownership (Captainships)</mark> </summary><div class="indented"><ul id="24485144-8f12-8093-8adc-de22de58ac29" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Carries Their Role With Excellence</strong></mark></summary><ul id="24485144-8f12-8000-b2d6-c8fc619255f1" class="bulleted-list"><li style="list-style-type:disc">Has clear accountability over a specific area (FOH Trainer, Facility Captain, Sauce Master, etc.).<blockquote id="24485144-8f12-80af-a536-c3c340653871" class=""><em><mark class="highlight-blue"><strong>“I’ve updated the facility cleaning checklist — last week we missed 3 items.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80a3-9979-c96e86269959" class="bulleted-list"><li style="list-style-type:disc">Knows what good looks like — and resets when needed.</li></ul><ul id="24485144-8f12-80e3-9449-e389581cb89b" class="bulleted-list"><li style="list-style-type:disc">Tracks trends and looks for improvement.<blockquote id="24485144-8f12-808c-8843-d57013ee8368" class=""><em><mark class="highlight-blue"><strong>“I’ve noticed we’ve been cutting it close on batter every order. I need to look at yields but more importantly, we also seem to be wasting a lot of batter in our PM shifts.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-806e-abd2-fcb8f2ec5199"/><ul id="24485144-8f12-800b-af7f-f54707b7a390" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Trains and Coaches Others in the System</strong></mark></summary><ul id="24485144-8f12-800c-bba4-df6c4a0cc692" class="bulleted-list"><li style="list-style-type:disc">Coaches peers when things slip.</li></ul><ul id="24485144-8f12-80e3-90c3-fb4d3ca176c4" class="bulleted-list"><li style="list-style-type:disc">Teaches new team members how to do it right.<blockquote id="24485144-8f12-809e-bdf5-fb05fddcc51d" class=""><em><mark class="highlight-blue"><strong>“I noticed sauce cups were not as full and so took some time today to model the proper technique with the morning prep team.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80cb-b2ab-e7472a5e6beb" class="bulleted-list"><li style="list-style-type:disc">Doesn’t wait on a manager to reset standards</li></ul></details></li></ul><hr id="24485144-8f12-80a2-b0a9-ca44252bb991"/><ul id="24485144-8f12-802f-aea9-d8a21a09b703" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Communicates Proactively</strong></mark></summary><ul id="24485144-8f12-802f-9326-c10100e54dd3" class="bulleted-list"><li style="list-style-type:disc">Updates managers on wins, issues, and ideas.<blockquote id="24485144-8f12-8085-92fc-c46969d8c9af" class=""><em><mark class="highlight-blue"><strong>“I’ve got an idea to make this easier to keep up with — want to see it?”</strong></mark></em></blockquote><blockquote id="24485144-8f12-80db-9c2c-f292e1a5d11a" class=""><em><mark class="highlight-blue"><strong>“I left a Slack note about what I adjusted — let me know if it needs tweaking.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80a5-a414-da2618579e4e" class="bulleted-list"><li style="list-style-type:disc">Doesn’t wait until things are broken to speak up.</li></ul><ul id="24485144-8f12-8036-ba42-d7ba20057da5" class="bulleted-list"><li style="list-style-type:disc">Takes pride in making their system stronger.</li></ul></details></li></ul><hr id="24485144-8f12-8022-9126-c7688c10b77e"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">Communication &amp; Presence </mark></summary><div class="indented"><ul id="24485144-8f12-807f-b47d-fa38b54e391c" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Speaks With Clarity and Confidence</strong></mark></summary><ul id="24485144-8f12-8091-a7fa-ff4f46709193" class="bulleted-list"><li style="list-style-type:disc">Gives short, direct shift instructions<blockquote id="24485144-8f12-8045-a2a6-ee8acbbd1bd5" class=""><em><mark class="highlight-blue"><strong>“Let’s get food down and get prepared for tablet.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80f6-881a-e19cced0865f" class="bulleted-list"><li style="list-style-type:disc">Communicates expectations in real time.<blockquote id="24485144-8f12-80de-8c5f-dcd898e975ce" class=""><em><mark class="highlight-blue"><strong>“Let’s check tea, ice, lemonade and restrooms before we get busy. We’re about to see some business today!”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-80af-b6a3-db2825f21f28"/><ul id="24485144-8f12-801a-8e84-cdb61346a57b" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Leads the Room With Their Energy</strong></mark></summary><ul id="24485144-8f12-807a-853b-fef91a26d2e9" class="bulleted-list"><li style="list-style-type:disc">Stays calm under pressure.<blockquote id="24485144-8f12-804a-a2cb-ec73cffdfe2d" class=""><em><mark class="highlight-blue"><strong>“We’ve got this, it’s just one ticket at a time.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80e7-8f3b-c63c740c0f02" class="bulleted-list"><li style="list-style-type:disc">Doesn’t yell or talk down — stays composed.</li></ul><ul id="24485144-8f12-808c-a988-e60b5af43634" class="bulleted-list"><li style="list-style-type:disc">Brings enthusiasm and energy for every shift whether managing or working stations.</li></ul><ul id="24485144-8f12-802b-b9ba-e6d3d2680bcb" class="bulleted-list"><li style="list-style-type:disc">Uses tone to set the emotional tone of the shift.<blockquote id="24485144-8f12-8012-b9bf-d3bc0911116c" class=""><em><mark class="highlight-blue"><strong>“Head on a swivel — let’s stay locked in and finish strong.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-8061-bafa-e71cd566de55"/><ul id="24485144-8f12-8005-9a91-e43459d3109a" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Communicates With the Bigger Picture in Mind</strong></mark></summary><ul id="24485144-8f12-80d1-994d-fbc43c857979" class="bulleted-list"><li style="list-style-type:disc">Stays connected to leadership convos and priorities.<blockquote id="24485144-8f12-80d9-a2ad-e6f2f85d65c3" class=""><em><mark class="highlight-blue"><strong>“I updated it in Slack after close — we caught up on sauce and coached Jordan on proper FIFO.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-8016-a61d-f4f9cfcc1542" class="bulleted-list"><li style="list-style-type:disc">Brings information back to the team with clarity.<blockquote id="24485144-8f12-80ac-a0a5-e845f72495c0" class=""><em><mark class="highlight-blue"><strong>“Let me explain what’s changing and why — so it doesn’t catch us off guard.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-802e-8b79-e3a2ddff9594" class="bulleted-list"><li style="list-style-type:disc">Uses Slack or handoff notes to communicate professionally.</li></ul></details></li></ul><hr id="24485144-8f12-807f-92e8-e049f8b7cd08"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-gray_background">Brand Advocacy &amp; Stewardship</mark></summary><div class="indented"><ul id="24485144-8f12-8066-836f-e7a50c7eacb1" class="toggle"><li><details open=""><summary><mark class="highlight-gray">Represents the Brand With Pride</mark></summary><ul id="24485144-8f12-805a-a209-fcf56cdeab57" class="bulleted-list"><li style="list-style-type:disc">Speaks positively about the company in public and private.<blockquote id="24485144-8f12-8060-a2ba-d9f204c80590" class=""><em><mark class="highlight-blue"><strong>“I always tell people — we don’t just serve food, we serve people.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-805a-98e5-ff8f96624181" class="bulleted-list"><li style="list-style-type:disc">Wears the uniform like a leader — clean, sharp, ready.</li></ul><ul id="24485144-8f12-8059-ad06-ff8a3cdcf3b4" class="bulleted-list"><li style="list-style-type:disc">Models our values on and off the floor.<blockquote id="24485144-8f12-801c-a467-de75e8876df3" class=""><em><mark class="highlight-blue"><strong>“I wear the brand like I mean it — even when I’m just grabbing coffee.”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-801e-a010-da64f7fe9dc5"/><ul id="24485144-8f12-8061-a545-dcd117fb1dbe" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Takes Ownership Beyond the Shift</strong></mark></summary><ul id="24485144-8f12-8024-8377-e233c8df888c" class="bulleted-list"><li style="list-style-type:disc">Looks for ways to help improve the restaurant or systems.<blockquote id="24485144-8f12-80be-bcae-ea736e5f2077" class=""><em><mark class="highlight-blue"><strong>“I saw something that might help the open run smoother — want to test it?”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80c1-a742-c8f2608e3a5e" class="bulleted-list"><li style="list-style-type:disc">Gives upward feedback respectfully.</li></ul><ul id="24485144-8f12-8042-8157-cfe7f28a7653" class="bulleted-list"><li style="list-style-type:disc">Hi-lights patterns or inconsistencies.<blockquote id="24485144-8f12-80a3-a548-e6aac920235a" class=""><em><mark class="highlight-blue"><strong>“We’ve missed three days on the the time change sheet — I’ll follow up and retrain.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-80c8-a16f-e9aa10423405" class="bulleted-list"><li style="list-style-type:disc">Takes responsibility for their store — not just their shift.<blockquote id="24485144-8f12-804e-bb79-c5b2f31fa29e" class="block-color-blue"><em><mark class="highlight-blue"><strong>“That cooler keeps getting left open — I’m coaching it every shift now.”</strong></mark></em></blockquote><blockquote id="24485144-8f12-80b5-87a2-d35fc337a598" class=""><em><mark class="highlight-blue"><strong>“We’ve got a system that could scale if we write it down — want help with that?”</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-8054-ab0c-e40bb7e97dea"/><ul id="24485144-8f12-80f6-94d6-cdaa254578ec" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Protects Company Resources</strong></mark></summary><ul id="24485144-8f12-801e-92cb-d4f962d5feae" class="bulleted-list"><li style="list-style-type:disc">Respects the food, tools, and materials they’re responsible for.<blockquote id="24485144-8f12-80ac-921e-ed82008b7299" class=""><em><mark class="highlight-blue"><strong>“Hey y’all — we’re wasting too many cups. Let’s get that under control.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-804d-84f6-c0a9f08bc453" class="bulleted-list"><li style="list-style-type:disc">Encourages the team to treat the business the same way.</li></ul><ul id="24485144-8f12-809f-bba4-f4259174e174" class="bulleted-list"><li style="list-style-type:disc">Looks for long-term fixes, not shortcuts.</li></ul></details></li></ul><hr id="24485144-8f12-8088-85d6-dbb646f85f04"/><ul id="24485144-8f12-8068-87e1-cbcad37f1ea9" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Inspires Others to Lead Too</strong></mark></summary><ul id="24485144-8f12-80a6-854b-d8b209b228ce" class="bulleted-list"><li style="list-style-type:disc">Encourages teammates to take the next step.<blockquote id="24485144-8f12-809f-889e-e9d494be87eb" class=""><em><mark class="highlight-blue"><strong>“I told her she’d be great at training — she just needed someone to believe in her first.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-806d-85ab-eb55bdc05c3d" class="bulleted-list"><li style="list-style-type:disc">Celebrates leadership wins — even small ones.<blockquote id="24485144-8f12-8054-87fb-ca7c10851c4a" class=""><em><mark class="highlight-blue"><strong>“You led Assembly today like a pro. Keep pushing — you’ve got this.”</strong></mark></em></blockquote></li></ul><ul id="24485144-8f12-800d-bc3f-d355ca3d97b8" class="bulleted-list"><li style="list-style-type:disc">Helps make leadership feel accessible and worth it.</li></ul></details></li></ul><hr id="24485144-8f12-80ee-92d2-d555f8a8799a"/></div></details><hr id="1f285144-8f12-8074-b6f3-c572f63ab328"/><div id="1f285144-8f12-8018-a9a8-d91692ed0445" class="column-list"><div id="1f285144-8f12-803f-b964-c981b5d3f09e" style="width:33.33333333333333%" class="column"><figure id="1f285144-8f12-8062-a03e-c1e7163ba00f" class="image"><a href="241fab69-1004-4a58-baa6-af6e65f827c6.png"><img style="width:320px" src="241fab69-1004-4a58-baa6-af6e65f827c6.png"/></a></figure></div><div id="1f285144-8f12-8036-bb2f-d41fb460f969" style="width:33.33333333333333%" class="column"><figure id="1f285144-8f12-807a-ba4e-e3914b8c8b8c" class="image"><a href="820de4b5-581d-4506-b727-63096a353ab6.png"><img style="width:320px" src="820de4b5-581d-4506-b727-63096a353ab6.png"/></a></figure></div><div id="1f285144-8f12-80b7-8c76-f9b43930e0fb" style="width:33.33333333333333%" class="column"><figure id="1f285144-8f12-8005-9bf0-eb88e4a73462" class="image"><a href="52b1e71f-a2ed-4081-b2f2-ff926a1e88d1.png"><img style="width:320px" src="52b1e71f-a2ed-4081-b2f2-ff926a1e88d1.png"/></a></figure></div></div><div id="1f285144-8f12-8094-bea3-e7391ada873f" class="column-list"><div id="1f285144-8f12-80e4-b289-ff67962afa39" style="width:33.33333333333333%" class="column"><p id="1f285144-8f12-8062-b942-f6ecec0f201a" class="">
+</p></div><div id="1f285144-8f12-808c-8118-d297db3a785f" style="width:33.33333333333333%" class="column"><p id="1f285144-8f12-8079-ba92-e6757202cb6e" class="">
+</p></div><div id="1f285144-8f12-8049-b671-ff5010b114e3" style="width:33.33333333333333%" class="column"><p id="1f285144-8f12-808b-a54a-c382f6e3488c" class="">
+</p></div></div><p id="24485144-8f12-8064-8205-e2c0ed4bd92c" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
