@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Level 1 Competency Model</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="24485144-8f12-8126-aadd-dbca0a9ba56b" class="page sans"><header><img class="page-cover-image" src="WEBSITE_HEADER_IMAGE.png" style="object-position:center 50%"/><h1 class="page-title">Level 1 Competency Model</h1><p class="page-description"></p></header><div class="page-body"><p id="24485144-8f12-8006-97ba-c365ba8f4ed0" class=""><mark class="highlight-red"><strong>Return To Home Page: </strong></mark><mark class="highlight-red"><strong><a href="The%20foo%20Levels%20of%20Leadership%20243851448f12801da5c1c69fa987daf8.html">The foo Levels of Leadership</a></strong></mark><mark class="highlight-red"><strong> </strong></mark></p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Coach, First and Foremost</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-812f-a99d-d40f6744affc" class="block-color-gray toggle"><li><details open=""><summary><strong>Observes, Then Steps In With Purpose</strong></summary><ul id="24485144-8f12-81c9-b1fc-f0062ec59189" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Watches for growth moments—not just mistakes.</mark></li></ul><ul id="24485144-8f12-8149-85c7-d1dd3741bb5c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Coaches in the moment when team members struggle.</mark></li></ul></details></li></ul><hr id="24485144-8f12-8169-9727-c1fc22673762"/><ul id="24485144-8f12-8166-8855-d1ab7ed3f439" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Gives Frequent, Real-Time Feedback</strong></mark></summary><ul id="24485144-8f12-8143-bb6b-c6db10c60bd5" class="bulleted-list"><li style="list-style-type:disc">Offers immediate, specific praise and guidance.</li></ul><blockquote id="24485144-8f12-8191-a118-f14534df285b" class=""><em><mark class="highlight-blue"><strong>&quot;Nice job catching back up—appreciate the hustle.&quot;</strong></mark></em></blockquote></details></li></ul><hr id="24485144-8f12-8193-ad8f-f697a4ee64ed"/><ul id="24485144-8f12-81c1-8c24-c3c13b5778c5" class="toggle"><li><details open=""><summary><strong>T</strong><mark class="highlight-gray"><strong>eaches, Not Just Tells</strong></mark></summary><ul id="24485144-8f12-813c-87c3-ec0e89ca3ea0" class="bulleted-list"><li style="list-style-type:disc">Explains the &#x27;why&#x27; behind the task.<blockquote id="24485144-8f12-8153-9a00-e68cbf8df4ea" class=""><em><mark class="highlight-blue"><strong>&quot;We do it this way to improve flow and avoid getting behind.&quot;</strong></mark></em></blockquote></li></ul></details></li></ul><hr id="24485144-8f12-810c-8af2-ee6c71ee487e"/><ul id="24485144-8f12-8194-b304-d9b8570e49f9" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Holds and Reinforces Standards</strong></mark></summary><ul id="24485144-8f12-81ed-a2c5-e476d1feb9b3" class="bulleted-list"><li style="list-style-type:disc">Doesn’t let things slide just because it’s busy.</li></ul><ul id="24485144-8f12-819d-9a0f-dda082c03a81" class="bulleted-list"><li style="list-style-type:disc">Holds team accountable with care and clarity.</li></ul></details></li></ul><hr id="24485144-8f12-8148-aa16-efc0cd6d1436"/><ul id="24485144-8f12-8185-8a2a-fe0ecee36025" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Builds Confidence</strong></mark></summary><ul id="24485144-8f12-818a-93f2-fd2027d77c8a" class="bulleted-list"><li style="list-style-type:disc">Recognizes wins, big and small.</li></ul><ul id="24485144-8f12-8107-b404-ff60aebe956a" class="bulleted-list"><li style="list-style-type:disc">Encourages growth beyond comfort zones.</li></ul></details></li></ul><hr id="24485144-8f12-8116-9a98-f177a6ddce7b"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Good Communicator</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-8194-af22-d2751a474425" class="toggle"><li><details open=""><summary><strong>Sets Clear Expectations</strong></summary><ul id="24485144-8f12-81f6-947c-e8667f3c049d" class="bulleted-list"><li style="list-style-type:disc">Outlines goals and metrics before and during the shift.</li></ul><blockquote id="24485144-8f12-8162-bc4d-eaa76c922912" class=""><em><mark class="highlight-blue"><strong>&quot;We’re aiming for 3-minute ticket times AND great quality.&quot;</strong></mark></em></blockquote></details></li></ul><hr id="24485144-8f12-815c-a079-f959d64eb560"/><ul id="24485144-8f12-8131-8ee0-ff4d2e7fdd43" class="toggle"><li><details open=""><summary><strong>Stays Calm and Direct Under Pressure</strong></summary><ul id="24485144-8f12-81c4-9e4b-fbf1ebcf8119" class="bulleted-list"><li style="list-style-type:disc">Gives clear direction without panic.</li></ul><blockquote id="24485144-8f12-81d6-9286-f32d60fbe5cf" class=""><em><mark class="highlight-blue"><strong>&quot;We’re backed up—can you hop to drinks please?&quot;</strong></mark></em></blockquote></details></li></ul><hr id="24485144-8f12-81f6-804f-f1bd30307270"/><ul id="24485144-8f12-81f7-a5a9-de5967199b78" class="toggle"><li><details open=""><summary><strong>Delivers Respectful Feedback</strong></summary><ul id="24485144-8f12-81ce-a06a-df0378782bac" class="bulleted-list"><li style="list-style-type:disc">Chooses constructive phrasing.</li></ul><blockquote id="24485144-8f12-819b-83b5-f005f76a7107" class=""><em><mark class="highlight-blue"><strong>Not: &quot;You’re too slow.&quot; Instead: &quot;Let me show you how to move tickets faster without losing accuracy.&quot;</strong></mark></em></blockquote></details></li></ul><hr id="24485144-8f12-8112-bf0d-d65d58ee92c9"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Self-Awareness</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-8122-aca6-ec92506a0edf" class="bulleted-list"><li style="list-style-type:disc">Acknowledges their own impact.</li></ul><blockquote id="24485144-8f12-8110-9403-cc0a2451e4c7" class=""><em><mark class="highlight-blue"><strong>&quot;My tone was off earlier. I’m sorry about that.&quot;</strong></mark></em></blockquote><ul id="24485144-8f12-815b-96f0-e3e4d243153a" class="bulleted-list"><li style="list-style-type:disc">Adjusts behavior mid-shift.</li></ul><blockquote id="24485144-8f12-81c2-a633-e569677190e5" class=""><em><mark class="highlight-blue"><strong>“I’ve been a little negative—I need to change that.&quot;</strong></mark></em></blockquote><ul id="24485144-8f12-813b-95e9-f32167cf2a16" class="bulleted-list"><li style="list-style-type:disc">Owns mistakes without defensiveness.</li></ul><ul id="24485144-8f12-81b8-8609-db9bfe21bd92" class="bulleted-list"><li style="list-style-type:disc">Controls emotions and resets attitude when needed.</li></ul><hr id="24485144-8f12-819c-8226-c55685b353a2"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Emotional Intelligence</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-8141-8805-db97454eaef5" class="bulleted-list"><li style="list-style-type:disc">Coaches rather than reacts harshly to mistakes.</li></ul><blockquote id="24485144-8f12-81cb-ad97-da6af37678e0" class=""><em><mark class="highlight-blue"><strong>&quot;Frustrating, I get it. Let’s not let it get us down.&quot;</strong></mark></em></blockquote><ul id="24485144-8f12-8104-bd99-d098e0d9e09f" class="bulleted-list"><li style="list-style-type:disc">Checks in with team members emotionally.</li></ul><blockquote id="24485144-8f12-81dc-8c6f-fba7984fcb99" class=""><em><mark class="highlight-blue"><strong>&quot;You seem off today—everything okay?&quot;</strong></mark></em></blockquote><ul id="24485144-8f12-8120-bad0-f191f003d2ed" class="bulleted-list"><li style="list-style-type:disc">Rephrases when miscommunication happens.</li></ul><blockquote id="24485144-8f12-814b-947a-dda5e795242f" class=""><em><mark class="highlight-blue"><strong>&quot;That didn’t land how I meant it—let me rephrase.”</strong></mark></em></blockquote><ul id="24485144-8f12-8142-89ad-f0d194e024ec" class="bulleted-list"><li style="list-style-type:disc">Does not let emotions create a false narrative of people or get in the way of staying positive and delivering feedback.</li></ul><ul id="24485144-8f12-8113-8966-fc1145647c3f" class="bulleted-list"><li style="list-style-type:disc">Works on themselves daily instead of comparing to others.</li></ul><hr id="24485144-8f12-8182-aed6-d83219244974"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Self-Discipline</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-81e2-a082-c5d3b4df9cac" class="bulleted-list"><li style="list-style-type:disc">Stays late to finish the job when needed.</li></ul><ul id="24485144-8f12-8132-908c-f437b0ffb8cc" class="bulleted-list"><li style="list-style-type:disc">Leads with consistent energy despite outside stress.</li></ul><ul id="24485144-8f12-81bf-b651-e6e2e7ee5661" class="bulleted-list"><li style="list-style-type:disc">Takes and applies tough feedback.</li></ul><blockquote id="24485144-8f12-81d2-95ff-f00352938a86" class=""><em><mark class="highlight-blue"><strong>&quot;Thanks for the notes—I’ll communicate better during shift change.&quot;</strong></mark></em></blockquote><hr id="24485144-8f12-81c0-a23a-fffd2930a5e7"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Integrity</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-8146-a718-dfdbad0db3c6" class="bulleted-list"><li style="list-style-type:disc">Follows through on commitments.</li></ul><ul id="24485144-8f12-81fd-b450-c33835a6b311" class="bulleted-list"><li style="list-style-type:disc">Maintains consistency whether or not leadership is present.</li></ul><ul id="24485144-8f12-813b-89c1-f0e0d88ea705" class="bulleted-list"><li style="list-style-type:disc">Holds themselves and the team accountable to systems and standards.</li></ul><ul id="24485144-8f12-81ff-a9b9-e6f254b5d794" class="bulleted-list"><li style="list-style-type:disc">Speaks up when something is wrong.</li></ul><hr id="24485144-8f12-8166-b860-c837fd65b7d4"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Positive Attitude</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-81b0-9deb-fd3ea7d3e4d7" class="bulleted-list"><li style="list-style-type:disc">Brings steady, positive energy.</li></ul><ul id="24485144-8f12-811c-b174-d885007831d7" class="bulleted-list"><li style="list-style-type:disc">Recognizes team wins in real-time.</li></ul><ul id="24485144-8f12-8193-80e0-e4d5ef587a48" class="bulleted-list"><li style="list-style-type:disc">Focuses on solutions.</li></ul><blockquote id="24485144-8f12-8174-9391-f5eb5fa9dea2" class=""><em><mark class="highlight-blue"><strong>&quot;Let’s fix it,&quot; not &quot;Whose fault is it?&quot;</strong></mark></em></blockquote><hr id="24485144-8f12-817d-ac27-c60d9da8c488"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Resilience</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-8146-9af2-c721a25b71f2" class="bulleted-list"><li style="list-style-type:disc">Stays calm and focused when shifts get chaotic.</li></ul><ul id="24485144-8f12-8141-8624-d74b54210de2" class="bulleted-list"><li style="list-style-type:disc">Bounces back from a tough shift. Doesn’t let it get them down.</li></ul><ul id="24485144-8f12-81bc-b9b1-e54d672f78f3" class="bulleted-list"><li style="list-style-type:disc">Doesn’t let personal stress impact the shift.</li></ul><ul id="24485144-8f12-81b2-bcde-e06f4d56deac" class="bulleted-list"><li style="list-style-type:disc">Trust’s how they are being developed even when hitting temporary setbacks.</li></ul><blockquote id="24485144-8f12-8125-b0da-edb2e13a592c" class=""><em><mark class="highlight-blue"><strong>“I don’t see it fully yet, but I trust the process.”</strong></mark></em></blockquote><hr id="24485144-8f12-814a-a8d1-f1d4ad715a80"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Growth Mindset</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-8151-8d54-c9386e0d3bcc" class="bulleted-list"><li style="list-style-type:disc">Asks questions when unsure.</li></ul><blockquote id="24485144-8f12-8196-90f1-fbbb80684d7f" class=""><em><mark class="highlight-blue"><strong>&quot;Can you walk me through that?&quot;</strong></mark></em></blockquote><ul id="24485144-8f12-81bd-a49a-d467c49826e8" class="bulleted-list"><li style="list-style-type:disc">Accepts and applies feedback. Doesn’t get down on themselves.</li></ul><ul id="24485144-8f12-818e-a73c-f1d2a6f565a9" class="bulleted-list"><li style="list-style-type:disc">Seeks new challenges and opportunities to grow.</li></ul><hr id="24485144-8f12-8162-b241-d032367804fd"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Servant Leadership</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-81a4-9444-ce87e2eca2ef" class="bulleted-list"><li style="list-style-type:disc">Takes on hard tasks as well. Doesn’t delegate them all.</li></ul><ul id="24485144-8f12-81fb-9149-f8cf127d160d" class="bulleted-list"><li style="list-style-type:disc">Regularly checks in with team members.</li></ul><blockquote id="24485144-8f12-816e-a857-feb8415d8a38" class=""><em><mark class="highlight-blue"><strong>&quot;What do you need from me?&quot;</strong></mark></em></blockquote><ul id="24485144-8f12-8181-813d-ea34e4e8eebb" class="bulleted-list"><li style="list-style-type:disc">Stays and finishes the job until the team is set up for success.</li></ul><hr id="24485144-8f12-81a5-a534-f674b7d2a4a2"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Teamwork</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-812b-b478-f4e6195bda25" class="bulleted-list"><li style="list-style-type:disc">Jumps in to help without being asked.</li></ul><ul id="24485144-8f12-81da-ab51-dd2deeba188c" class="bulleted-list"><li style="list-style-type:disc">Maintains positive energy and encouragement.</li></ul><ul id="24485144-8f12-8110-b1de-cea47f3d27ea" class="bulleted-list"><li style="list-style-type:disc">Focuses on solving issues, not placing blame.</li></ul><hr id="24485144-8f12-819c-afed-d23003597785"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Customer Experience &amp; Satisfaction focus</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-816e-9e5d-de3f1ec15a47" class="bulleted-list"><li style="list-style-type:disc">Engages customers with a friendly and welcoming attitude.</li></ul><ul id="24485144-8f12-81e2-a434-e3a9b68763ef" class="bulleted-list"><li style="list-style-type:disc">Practices the BLAST method for handling complaints.</li></ul><ul id="24485144-8f12-819e-b9a8-e1f148e70c7c" class="bulleted-list"><li style="list-style-type:disc">Identifies opportunities to exceed guest expectations.</li></ul><ul id="24485144-8f12-81d1-9bd9-d5af2d9f8f22" class="bulleted-list"><li style="list-style-type:disc">Knows when and how to escalate service issues.</li></ul><ul id="24485144-8f12-8158-bbd2-e9fa9d7a5ea3" class="bulleted-list"><li style="list-style-type:disc">Rallies the team around the customer experience.</li></ul><ul id="24485144-8f12-81e1-a709-c5503c93b4b3" class="bulleted-list"><li style="list-style-type:disc">Exhibit a passion for service</li></ul><hr id="24485144-8f12-8114-af83-f3ee64275076"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Shift Management</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-8151-a47b-f5c91acf1475" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><mark class="highlight-default_background"><strong>Plans and Organizes Efficiently</strong></mark></mark></summary><ul id="24485144-8f12-8120-ad73-d0dc791c5db2" class="bulleted-list"><li style="list-style-type:disc">Ready and prepared ahead of shift.</li></ul><ul id="24485144-8f12-811a-8199-cae0f1cf69a9" class="bulleted-list"><li style="list-style-type:disc">Understands team strengths and opportunities.</li></ul><ul id="24485144-8f12-8197-b024-ccbd6e60263d" class="bulleted-list"><li style="list-style-type:disc">Anticipates and plans for business spikes.</li></ul></details></li></ul><hr id="24485144-8f12-81f4-8ba2-e270f95b68cc"/><ul id="24485144-8f12-81ea-81e0-d7de68049f49" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><mark class="highlight-default_background"><strong>Punctual, Prepared, and Energized</strong></mark></mark></summary><ul id="24485144-8f12-81b1-8ae2-f576c2d009cd" class="bulleted-list"><li style="list-style-type:disc">Arrives on time, prepared with a plan.</li></ul><ul id="24485144-8f12-8155-871c-e3a18f64eb32" class="bulleted-list"><li style="list-style-type:disc">Maintains professional appearance and presence.</li></ul></details></li></ul><hr id="24485144-8f12-8162-8f7f-cec6851800a1"/><ul id="24485144-8f12-8106-9e08-ec2d30aebff8" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><mark class="highlight-default_background"><strong>Maintains Focus and Urgency</strong></mark></mark></summary><ul id="24485144-8f12-817d-94ec-ea9745b6fe71" class="bulleted-list"><li style="list-style-type:disc">Has a “let’s go!” mindset that carries through prep and ahead of peak hours.</li></ul><blockquote id="24485144-8f12-81c0-bd1e-db15b833def0" class=""><em><mark class="highlight-blue"><strong>“Hey y’all, let’s lock in —  we are staying ready for lunch rush!”</strong></mark></em></blockquote><ul id="24485144-8f12-819a-bf6c-d9c751cb82cb" class="bulleted-list"><li style="list-style-type:disc">Stays engaged even when slow.</li></ul><ul id="24485144-8f12-81af-89f2-d10dd1dd50f5" class="bulleted-list"><li style="list-style-type:disc">Adjusts team roles in real time when needed.</li></ul><ul id="24485144-8f12-8117-926d-cd38ce61cf7f" class="bulleted-list"><li style="list-style-type:disc">Moves with urgency but calmly.</li></ul></details></li></ul><hr id="24485144-8f12-8167-b99e-d1689bb14da7"/><ul id="24485144-8f12-81f7-a6f8-d1596f1937f3" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><mark class="highlight-default_background"><strong>Ensures All Positions Run Smoothly</strong></mark></mark></summary><ul id="24485144-8f12-8160-b34c-db85e8dd0419" class="bulleted-list"><li style="list-style-type:disc">Moves around and checks each station regularly.</li></ul><ul id="24485144-8f12-8181-a4a9-ce08e487039c" class="bulleted-list"><li style="list-style-type:disc">Steps in or assigns help where needed.</li></ul><ul id="24485144-8f12-81b6-8f91-f5e895faa5b6" class="bulleted-list"><li style="list-style-type:disc">Supports front-of-house and kitchen equally.</li></ul></details></li></ul><hr id="24485144-8f12-8183-934c-f50135876a24"/><ul id="24485144-8f12-81a3-a37d-c6e21ebfa9a0" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><mark class="highlight-default_background"><strong>Relieves Bottlenecks Quickly</strong></mark></mark></summary><ul id="24485144-8f12-8118-82f1-c0e1d4d0123b" class="bulleted-list"><li style="list-style-type:disc">Monitors ticket times and makes adjustments early.</li></ul><blockquote id="24485144-8f12-81fb-969c-d34d9a971b2f" class=""><em><mark class="highlight-blue"><strong>&quot;Let’s move Alex to tickets. I’ll run food for a few minutes.&quot;</strong></mark></em></blockquote><ul id="24485144-8f12-8190-8c36-f502303dc97d" class="bulleted-list"><li style="list-style-type:disc">Fixes issues first, then follows up for long-term improvement.</li></ul></details></li></ul><hr id="24485144-8f12-812b-bf68-f1bd0269638e"/><ul id="24485144-8f12-81b7-808f-fdd017d04927" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><mark class="highlight-default_background"><strong>Food Quality &amp; Presentation</strong></mark></mark></summary><ul id="24485144-8f12-811b-8b27-e01c7fe17a49" class="bulleted-list"><li style="list-style-type:disc">Stops sub-par food before it leaves the line.</li></ul><blockquote id="24485144-8f12-8124-9013-dd7b54f087f7" class=""><em><mark class="highlight-blue"><strong>&quot;This toast is too old—let’s drop a fresh one please.&quot;</strong></mark></em></blockquote><ul id="24485144-8f12-811a-952e-e1944b948005" class="bulleted-list"><li style="list-style-type:disc">Conducts regular visual checks to ensure quality food and presentation.</li></ul><ul id="24485144-8f12-8109-aa30-c53c71ad7275" class="bulleted-list"><li style="list-style-type:disc">Enforces FIFO consistently.</li></ul><ul id="24485144-8f12-8151-9601-c2e36196a4a0" class="bulleted-list"><li style="list-style-type:disc">Ensures proper pacing for hot fresh food.</li></ul></details></li></ul><hr id="24485144-8f12-8175-9aa9-c1d8e796c3f7"/><ul id="24485144-8f12-815b-a547-e189e095db0b" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><mark class="highlight-default_background"><strong>Service Flow &amp; Efficiency</strong></mark></mark></summary><ul id="24485144-8f12-810a-a4d9-cfb6b26a7384" class="bulleted-list"><li style="list-style-type:disc">Monitors the whole restaurant, not just assembly..</li></ul><ul id="24485144-8f12-819e-8013-ddd9bdae0701" class="bulleted-list"><li style="list-style-type:disc">Tracks ticket times and identifies slow points.</li></ul><ul id="24485144-8f12-810c-be47-fe270255f825" class="bulleted-list"><li style="list-style-type:disc">Adjusts positions, floaters, and tasks to maintain pace.</li></ul></details></li></ul><hr id="24485144-8f12-8146-9654-e0e2e2f047e7"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Technical Skills &amp; Compliance</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-81bf-b0c1-e2803355f6ff" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><strong>Operational Mastery</strong></mark></summary><ul id="24485144-8f12-8145-be71-f78ea0e98e3d" class="bulleted-list"><li style="list-style-type:disc">Proficient in FOH &amp; BOH roles and able to train others.</li></ul><ul id="24485144-8f12-8181-a167-e74be92189c8" class="bulleted-list"><li style="list-style-type:disc">Ensures compliance with food safety, sanitation, and labor laws.</li></ul><ul id="24485144-8f12-81d2-b213-f9b62e012425" class="bulleted-list"><li style="list-style-type:disc">Oversees inventory and receiving processes.</li></ul><ul id="24485144-8f12-8111-ac63-c3adee32c969" class="bulleted-list"><li style="list-style-type:disc">Coaches team members on equipment maintenance and safety protocols.</li></ul><ul id="24485144-8f12-8101-b6ac-fde4144cb81f" class="bulleted-list"><li style="list-style-type:disc">Uses operational tools like Schoox for training and performance tracking.</li></ul></details></li></ul><hr id="24485144-8f12-817a-ba0d-e24321276536"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Opening and Closing Responsibilities</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-8153-a9b2-c2a6ea96e0be" class="toggle"><li><details open=""><summary><mark class="highlight-gray"><mark class="highlight-default_background"><strong>Start and End-of-Day Excellence</strong></mark></mark></summary><ul id="24485144-8f12-81d5-bae0-c6e06fc8c4d4" class="bulleted-list"><li style="list-style-type:disc">Executes all opening and closing procedures efficiently.</li></ul><ul id="24485144-8f12-81e8-a388-e341cbba5d1c" class="bulleted-list"><li style="list-style-type:disc">Maintains high cleanliness and organization standards.</li></ul><ul id="24485144-8f12-81d6-96a8-ff1d0d3db373" class="bulleted-list"><li style="list-style-type:disc">Ensures all early and late customers are treated well.</li></ul><ul id="24485144-8f12-8151-bd95-d323112bcbc6" class="bulleted-list"><li style="list-style-type:disc">Handles POS troubleshooting and cash handling securely.</li></ul><ul id="24485144-8f12-81ae-b6c4-f411b9ed216d" class="bulleted-list"><li style="list-style-type:disc">Ensures the restaurant is open on time and ready to serve.</li></ul><ul id="24485144-8f12-811f-9fea-ea894d476de6" class="bulleted-list"><li style="list-style-type:disc">Leads end-of-day walkthroughs and ensures all team members clock out together.</li></ul></details></li></ul><hr id="24485144-8f12-81af-b880-ccb8139289ce"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Captainships &amp; Development Opportunities</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-812b-9b17-efb5dccfa9c7" class="bulleted-list"><li style="list-style-type:disc">FOH Trainer – Guides front-of-house team members.</li></ul><ul id="24485144-8f12-8193-a0b7-cd3cd69d1d8f" class="bulleted-list"><li style="list-style-type:disc">BOH Trainer – Coaches back-of-house staff on execution.</li></ul><ul id="24485144-8f12-8149-89bb-c5d5327ec0ae" class="bulleted-list"><li style="list-style-type:disc">Sauce Master – Ensures consistency in sauces and flavor.</li></ul><ul id="24485144-8f12-8115-8b52-e1d3c233c4bc" class="bulleted-list"><li style="list-style-type:disc">Food Quality Captain – Maintains high food standards.</li></ul><hr id="24485144-8f12-812e-8d0e-f966f3a37abb"/></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><mark class="highlight-default"><mark class="highlight-gray_background"><strong>Schoox Courses</strong></mark></mark></summary><div class="indented"><ul id="24485144-8f12-81f9-9551-c0b79822c774" class="bulleted-list"><li style="list-style-type:disc">Customer Service Excellence</li></ul><ul id="24485144-8f12-81b7-821a-db9c26cf27e5" class="bulleted-list"><li style="list-style-type:disc">Self-Awareness</li></ul><ul id="24485144-8f12-8119-afb8-c9fd55c6fbdf" class="bulleted-list"><li style="list-style-type:disc">Self-Discipline</li></ul><ul id="24485144-8f12-8198-92bd-e12bb9abfb1f" class="bulleted-list"><li style="list-style-type:disc">Grit &amp; Mental Toughness</li></ul><ul id="24485144-8f12-811d-8867-cb0c6db76c82" class="bulleted-list"><li style="list-style-type:disc">Communication Mastery</li></ul><ul id="24485144-8f12-81a3-930f-c64d2138190c" class="bulleted-list"><li style="list-style-type:disc">FOH Trainer</li></ul><ul id="24485144-8f12-81d4-88cf-cf2adc463f42" class="bulleted-list"><li style="list-style-type:disc">BOH Trainer</li></ul><ul id="24485144-8f12-81cf-86d8-cd9656e43953" class="bulleted-list"><li style="list-style-type:disc">Food Quality &amp; Safety Training Guide</li></ul><ul id="24485144-8f12-81c0-a6ec-c1e841878a0d" class="bulleted-list"><li style="list-style-type:disc">Introduction to Shift Leading</li></ul><ul id="24485144-8f12-8183-a4b7-d7a579c3c094" class="bulleted-list"><li style="list-style-type:disc">Running a Good Shift</li></ul><hr id="24485144-8f12-8180-855d-d677e5349671"/></div></details><hr id="24485144-8f12-813e-b579-fc083ef4018c"/><p id="24485144-8f12-8174-b60d-fd00183f2be5" class="">
+</p><div id="24485144-8f12-813a-ba7c-c4806a3dec0c" class="column-list"><div id="24485144-8f12-819f-92e7-dad45f5e611a" style="width:33.33333333333333%" class="column"><figure id="24485144-8f12-8123-b686-d5ab31fd8279" class="image"><a href="241fab69-1004-4a58-baa6-af6e65f827c6.png"><img style="width:320px" src="241fab69-1004-4a58-baa6-af6e65f827c6.png"/></a></figure></div><div id="24485144-8f12-814d-a6de-d73138e309af" style="width:33.33333333333333%" class="column"><figure id="24485144-8f12-810d-9094-c0a8f6649c44" class="image"><a href="820de4b5-581d-4506-b727-63096a353ab6.png"><img style="width:320px" src="820de4b5-581d-4506-b727-63096a353ab6.png"/></a></figure></div><div id="24485144-8f12-81e7-b39f-c84983e361e0" style="width:33.33333333333333%" class="column"><figure id="24485144-8f12-81bf-8b6c-ccbacf8dc05b" class="image"><a href="52b1e71f-a2ed-4081-b2f2-ff926a1e88d1.png"><img style="width:320px" src="52b1e71f-a2ed-4081-b2f2-ff926a1e88d1.png"/></a></figure></div></div><div id="24485144-8f12-8140-b307-dd709f0e05d9" class="column-list"><div id="24485144-8f12-8129-87d3-d9e5584c0c19" style="width:33.33333333333333%" class="column"><p id="24485144-8f12-81eb-b003-f827397a63d4" class="">
+</p></div><div id="24485144-8f12-81e1-8bf5-c7abc4b79516" style="width:33.33333333333333%" class="column"><p id="24485144-8f12-81d8-93ea-cb38d551911c" class="">
+</p></div><div id="24485144-8f12-810e-8e0d-d8387c7599fd" style="width:33.33333333333333%" class="column"><p id="24485144-8f12-816b-a8a2-efa8f52f3045" class="">
+</p></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
